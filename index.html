@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="icon2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Squada+One&display=swap" rel="stylesheet">
+    <title>Cube</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="introAudio()">
+    
+    <div class="mainDiv" >
+        <script src="dist/bundle.js" defer></script>
+    </div>
+    <div id="mydiv">
+        <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+        <div id="mydivheader">Controls panel</div>
+        <div id="controls">
+            <div>
+                <button id="pic" onmouseover="snapAudio()"><i class="material-icons" style="margin:auto;">photo_camera</i></button>
+            </div>
+            <div>
+                <button id="uploadF"><i class="material-icons" style="margin:auto;">upload_file</i></button>
+            </div>
+            <div>
+                <button id="saveF"><i class="material-icons" style="margin:auto;">save</i></button>
+            </div>
+            <div>
+                <button id="home"><i class="material-icons" style="margin:auto;">home</i></button>
+            </div>
+            
+        </div>
+        <!--div>
+            <input type="file" id="input" >
+        </div-->
+        <audio id="introAudio">
+            <source src="intro.webm"  type="audio/ogg">
+        </audio>
+        <audio id="myAudio">
+            <source src="recording.webm" type="audio/ogg">
+        </audio>
+        <audio id="snapAudio">
+            <source src="snapshot.webm" type="audio/ogg">
+        </audio>
+        <audio id="uploadedAudio">
+            <source src="file uploaded.webm" type="audio/ogg">
+        </audio>
+        <br>
+        <div class="file-upload">
+            <div class="file-upload-select">
+                <div class="file-select-button" ><strong onmouseover="playAudio()">Upload File</strong></div>
+            <div class="file-select-name">No file uploaded...</div> 
+            <input type="file" name="file-upload-input" id="file-upload-input">
+            </div>
+        </div>
+        <br>
+        
+        <div style="margin:5% 1%;">
+            <p >Selection Position controler</p>
+            <div class="radio">
+                <label for="x">x</label>
+                <input type="checkbox" id="x"></input>
+                <label for="y">y</label>
+                <input type="checkbox" id="y"></input>
+                <label for="z">z</label>
+                <input type="checkbox" id="z"></input>
+            </div>
+            <input id="myrange" type="range" value="0" min="-100" max="100" step="1"></input>
+        </div>
+        
+        <input type="text" id="inputX"></input>
+        <input type="text" id="inputY"></input>
+        <div class="properties" >
+            <p id="propsData" style="color: #a7529b;"></p>
+            <p id="nameData"></p>
+            <p id="typeData"></p>
+            <p id="layerData"></p>
+            <p id="objTypeData"></p>
+            <p id="materialData"></p>
+        </div>
+        
+    </div>
+    <div>
+        <script src="draggablemenu.js"></script>
+    </div>
+    <script>
+        let myAudio = document.getElementById('myAudio');
+        let intrAudio = document.getElementById('introAudio');
+        let snappAudio = document.getElementById('snapAudio');
+        function playAudio() { 
+            myAudio.play(); 
+        } 
+        function introAudio(){
+            intrAudio.play();
+        }
+        function snapAudio(){
+            snappAudio.play();
+        }
+    </script>
+    <!--div  >
+        <input type="file" id="file" style="display:none;" />
+        <button id="button" name="button" value="Upload" onclick="thisFileUpload();"><b>Import Rhino model</b> </button>
+        <script>
+        function thisFileUpload() {
+            document.getElementById("file").click();
+        };
+        </script>
+    </div-->
+    
+    <!--input type="file" name="load" id="file-input" />
+    <canvas id="three-canvas"></canvas>
+    <script src="bundle.js"></script-->
+</body>
+</html>
